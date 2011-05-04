@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Watchman Tests</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+
+  <nav><%=link_to "Home", root_path%> &raquo; <%=link_to "Project: #{@test.service.project.name}", project_path(@test.service.project)%> &raquo; 
+    <%=link_to "Service: #{@test.service.name}", service_path(@test.service)%> &raquo; <%= @test.name %></nav>
+
+<%= yield %>
+
+</body>
+</html>
+

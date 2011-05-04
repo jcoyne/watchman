@@ -1,0 +1,13 @@
+<h1><%= @project.name %> </h1>
+
+<h2>Services</h2>
+<ul>
+<% @project.services.each do |service| %>
+  <li><%=link_to service.name, service_path(service)%>
+      <%= link_to 'Delete', service_path(service),
+            :confirm => 'Are you sure?', :method => :delete %>
+  </li>
+<% end %>
+</ul>
+<%=link_to 'Add new service', new_service_path(:project_id=>@project) %>
+

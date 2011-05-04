@@ -1,0 +1,9 @@
+<h1>Create a new test</h1>
+<% form_for @test do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.hidden_field :service_id %>
+  <%= f.submit %>
+<% end %>
+
+

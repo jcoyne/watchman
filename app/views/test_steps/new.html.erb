@@ -1,0 +1,14 @@
+<h1>Create a new step</h1>
+<% form_for @test_step do |f| %>
+  <%= f.label :action %>
+  <%= f.text_field :action %><br>
+  <%= f.label :xpath %>
+  <%= f.text_field :xpath %><br>
+  <%= f.label :value %>
+  <%= f.text_field :value %><br>
+  <%= f.hidden_field :test_id %>
+  <%= f.submit %>
+<% end %>
+
+
+

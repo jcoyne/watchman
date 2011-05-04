@@ -1,0 +1,43 @@
+<h1><%= @test.name %> </h1>
+
+<h2>Steps</h2>
+<table>
+  <thead>
+    <tr>
+      <td></td>
+      <th>Action</th>
+      <th>X-Path</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @test.test_steps.each_with_index do |step, i| %>
+      <tr>
+        <td><%= i + 1%></td><td><%=link_to step.action, edit_test_step_path(step)%></td><td><%= link_to step.xpath, edit_test_step_path(step) %></td><td> <%= link_to step.value, edit_test_step_path(step) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br/><br/>
+<%=link_to 'Add new step', new_test_step_path(:test_id=>@test.id) %><br/>
+
+<h2>Watching</h2>
+<ul>
+<% @test.watchers.each do |user| %>
+  <li><%=user.name%> <%= user.email %> <%= link_to 'Remove', test_remove_watcher_path(@test, user), :confirm => 'Are you sure?', :method => :delete%></li>
+<% end %>
+</ul>
+<% unless (User.all - @test.watchers).empty? %>
+  <%=form_for @test do |f|%>
+    <%= select_tag("test[new_watcher]", options_for_select((User.all - @test.watchers).collect {|p| [ p.name, p.id ] })) %>
+    <%=f.submit 'Add new watcher' %><br/>
+  <% end %>
+<% end %>
+
+<h2>Runs</h2>
+<ol>
+<% @test.test_runs.reverse.each do |run| %>
+  <li class="test_run <%= run.status ? 'pass' : 'fail' %>"><span class="status"><%=run.status ? 'PASS' : 'FAIL' %></span> <%= run.created_at.strftime('%m/%d/%Y %I:%M %p') %></li>
+<% end %>
+</ol>
+

@@ -1,0 +1,31 @@
+tbody tr:nth-child(odd) {
+   background-color: #ccc;
+}
+
+tbody td {
+  padding: 0.5em;
+  border-right: 1px solid #aaa;
+  border-left: 1px solid #aaa;
+}
+
+table {
+  border: 3px solid black;
+  border-collapse:collapse;
+}
+
+
+
+.test_run .status{
+  display: inline-block;
+  width: 3em;
+  padding: .3em;
+  text-align: center;
+}
+.test_run.fail .status {
+  color: #ddd;
+  background-color: #E8000B;
+}
+.test_run.pass .status {
+  color: #aaa;
+  background-color: #2DF700;
+}

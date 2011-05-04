@@ -1,0 +1,11 @@
+<h1><%= @service.name %> </h1>
+
+<h2>Tests</h2>
+<ul>
+<% @service.tests.each do |test| %>
+  <li><%= link_to test.name, test_path(test)%></li>
+<% end %>
+</ul>
+<%=link_to 'Add new test', new_test_path(:service_id=>@service.id) %>
+
+
