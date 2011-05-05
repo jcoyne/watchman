@@ -1,0 +1,19 @@
+tbody tr:nth-child(odd) {
+   background-color: #ccc;
+}
+
+tbody td {
+  padding: 0.5em;
+  border-right: 1px solid #aaa;
+  border-left: 1px solid #aaa;
+}
+
+table {
+  border: 3px solid black;
+  border-collapse:collapse;
+  margin-bottom: 1em;
+}
+
+
+
+

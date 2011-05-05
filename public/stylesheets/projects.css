@@ -1,0 +1,11 @@
+
+.fail{
+  color: #ddd;
+  background-color: #E8000B;
+}
+.pass {
+  color: #aaa;
+  background-color: #2DF700;
+}
+
+

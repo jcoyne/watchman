@@ -1,13 +1,15 @@
 <h1><%= @project.name %> </h1>
 
 <h2>Services</h2>
-<ul>
+<table>
 <% @project.services.each do |service| %>
-  <li><%=link_to service.name, service_path(service)%>
-      <%= link_to 'Delete', service_path(service),
-            :confirm => 'Are you sure?', :method => :delete %>
-  </li>
+  <tr>
+    <td><%=link_to service.name, service_path(service)%></td>
+    <td class="<%= service.status ? 'pass' : 'fail'%>" ><%=service.status ? 'PASS' : 'FAIL' %></td>
+    <td><%= link_to 'Delete', service_path(service),
+            :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
 <% end %>
-</ul>
+</table>
 <%=link_to 'Add new service', new_service_path(:project_id=>@project) %>
 

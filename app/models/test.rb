@@ -44,4 +44,8 @@ class Test < ActiveRecord::Base
       end
     end
   end
+
+  def status
+    test_runs.first.status
+  end
 end
